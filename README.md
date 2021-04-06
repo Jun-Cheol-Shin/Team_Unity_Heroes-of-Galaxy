@@ -29,7 +29,7 @@
 
 ### JSON 파일로 캐릭터의 스텟 정보를 보유
 ### JsonManager 스크립트를 싱글톤으로 관리하여 GameManager에서 Json 데이터를 호출 뒤 직접 생성한다.
-### 캐릭터 생성 함수 링크[https://github.com/Jun-Cheol-Shin/Team_Unity_Heroes-of-Galaxy/blob/d48c400316ea9dd6c1411a861c64283c5784399b/Scripts/GameManager.cs#L472]
+### [캐릭터 생성 함수 링크](https://github.com/Jun-Cheol-Shin/Team_Unity_Heroes-of-Galaxy/blob/d48c400316ea9dd6c1411a861c64283c5784399b/Scripts/GameManager.cs#L472)
 
 ## ⓐ 블렌드 트리, 레이어, 애니메이션 이벤트로 애니메이터 제작
 + 총 4가지의 스테이트로 분류 (서서 라이플, 앉아 라이플, 서서 피스톨, 앉아 라이플)
