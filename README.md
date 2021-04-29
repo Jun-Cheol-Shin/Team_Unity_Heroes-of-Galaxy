@@ -122,7 +122,7 @@
 + 충돌 검사를 카메라 더미로 실행
 + 충돌 시 더미는 계속 충돌 검사하며 실제 카메라는 충돌한 포인트로 위치를 옮긴다.
 
-<img src="https://user-images.githubusercontent.com/58795584/100775714-fc4a1280-3446-11eb-8378-fe3f17bf8754.PNG"  width="450" height="270"> | <img src="https://user-images.githubusercontent.com/58795584/100775756-0b30c500-3447-11eb-8bf2-d6fc6ab30748.PNG"  width="450">
+<img src="https://user-images.githubusercontent.com/77636255/116544244-d3f90e00-a929-11eb-92b2-67a194b7624d.png"  width="450" height="270"> | <img src="https://user-images.githubusercontent.com/77636255/116544266-df4c3980-a929-11eb-9d08-36620e2d2f26.png"  width="450">
 :-------------------------:|:-------------------------:
 
 ```C#
