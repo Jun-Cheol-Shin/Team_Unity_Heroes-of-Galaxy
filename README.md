@@ -5,7 +5,7 @@
 + 현재 바르바, 던전 맵 구현을 마쳤습니다.
 #### 담당 : 캐릭터 클라이언트
 #### 개발기간 : 5개월
-
+#### 플레이 영상 : [링크](https://youtu.be/nFbnCIlHbpg)
 ------------
 # 게임 소개
 ## FPS 와 RTS 혼합 및 AI 코옵
@@ -285,9 +285,8 @@ public class SkillEditor : Editor
 ## 스킬 구현 및 기타
 + 캐릭터의 스펙을 데이터화 하기 위해 로딩 시간에 캐릭터를 구현하는데 필요한 모든 컴포넌트를 코드로 제작합니다. (GameManager)
 + 플레이어 매니저 스크립트를 따로 만들어 플레이어 구동에 필요한 코드들을 관리 및 서순을 정리했습니다. (Player_Manager)
-+ 게임 홍보 영상입니다. [영상 링크](https://youtu.be/nFbnCIlHbpg)
 + 플레이어 스킬 영상입니다.
-+ [폭렬 대쉬](https://youtu.be/aIDAlNDNzYI), [클라이맥스](https://youtu.be/iPaevBxKvN0), [정오의 주인공](https://youtu.be/sCfBqqwG5-Q), [사이킥 폭풍](https://youtu.be/dERqsuWcYs0), [염동력](https://youtu.be/FS85jic2FrI), [무차별 탄환](https://youtu.be/-v3yz9zgfQo), [바람 구멍](https://youtu.be/-QsGkroOFCw), [폭탄 뿌리기](https://youtu.be/6d7SaL7PygM)
++ [폭렬 대쉬](https://youtu.be/aIDAlNDNzYI), [클라이맥스](https://youtu.be/iPaevBxKvN0), [정오의 주인공](https://youtu.be/sCfBqqwG5-Q), [사이킥 폭풍](https://youtu.be/dERqsuWcYs0), [염동력](https://youtu.be/FS85jic2FrI), [무차별 탄환](https://youtu.be/-v3yz9zgfQo), [바람 구멍](https://youtu.be/-QsGkroOFCw), [폭탄 뿌리기](https://youtu.be/6d7SaL7PygM), [망령 탄환](https://youtu.be/pLg21kK5EZo)
 
 ## 팀 프로젝트를 하면서..
 + 그래픽을 담당하는 분이 팀에 있지 않아 애니메이션을 이용한 프로그래밍 작업이 힘들었습니다. 특히나 하나의 모션으로 다양한 총기 모션을 표현해야했기 때문에 팀원과의 대화를 통해 하나의 모션을 이용해 유니티의 IK 시스템을 이용하여 손과 팔목을 자유자재로 움직일 수 있도록 만들어봤습니다.
