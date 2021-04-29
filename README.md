@@ -173,10 +173,6 @@
                     anim.SetIKRotation(AvatarIKGoal.RightHand, r_Hand.rotation);
 ```
 ![무기오브젝트](https://user-images.githubusercontent.com/77636255/116544599-51248300-a92a-11eb-923c-ad482582f74d.png)
-:-------------------------:|:-------------------------:
-
-#### json으로 관리하고있는 pos와 rot값을 가져와 설정
-
 
 ## ⓔ 오브젝트 풀링
 + 오브젝트 풀링은 스킬에 사용되는 이펙트, 사격 시 떨어지는 탄피, 장전 시 떨어지는 탄창에 사용되었습니다.
@@ -185,6 +181,7 @@
 + 사용 시엔 Queue에서 Pop시켜 사용하며 일정 시간이 지나거나 스킬이 끝나면 Pop시킨 오브젝트를 다시 Push시켜 재사용합니다.
 + string과 Queue로 구성된 딕셔너리 m_ist를 만들어 오브젝트들을 종류에 따라 관리하도록 만들었습니다.
 
+* 반납 하기
 ```C#
  public void InsertObject(string key, GameObject p_obj)
     {
@@ -206,6 +203,8 @@
         p_obj.SetActive(false);
     }
 ```
+
+* 꺼내 쓰기
 ```C#
  public GameObject PullObject(string key)
     {
@@ -229,7 +228,7 @@
         return t_obj;
     }
 ```
-![오브젝트풀링](https://user-images.githubusercontent.com/58795584/101144299-705d0400-365b-11eb-8b94-996ab7194b3d.PNG)
+![오브젝트풀링](https://user-images.githubusercontent.com/77636255/116544747-7e713100-a92a-11eb-9475-57960f600b1b.png)
 
 #####  쓰는 오브젝트들을 하나의 부모의 자식으로 넣되, 딕셔너리를 이용해 따로따로 관리
 
