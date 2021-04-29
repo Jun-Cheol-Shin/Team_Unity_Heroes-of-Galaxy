@@ -172,11 +172,7 @@
                     anim.SetIKPosition(AvatarIKGoal.RightHand, r_Hand.position);
                     anim.SetIKRotation(AvatarIKGoal.RightHand, r_Hand.rotation);
 ```
-![무기오브젝트](https://user-images.githubusercontent.com/58795584/100991389-47bf0680-3596-11eb-8ce8-3a436ac263ab.PNG)
-
-#### 게임 로딩시간에 무기 오브젝트에 ref_left_hand_grip, ref_right_hand_grip이라는 오브젝트를 생성하여....
-
-<img src="https://user-images.githubusercontent.com/58795584/100991252-23632a00-3596-11eb-9da7-5b063dbb49a4.PNG"> | <img src="https://user-images.githubusercontent.com/58795584/100991283-2cec9200-3596-11eb-8243-849b37aefd6b.PNG">
+![무기오브젝트](https://user-images.githubusercontent.com/77636255/116544599-51248300-a92a-11eb-923c-ad482582f74d.png)
 :-------------------------:|:-------------------------:
 
 #### json으로 관리하고있는 pos와 rot값을 가져와 설정
