@@ -230,12 +230,8 @@
 ```
 ![오브젝트풀링](https://user-images.githubusercontent.com/77636255/116544747-7e713100-a92a-11eb-9475-57960f600b1b.png)
 
-#####  쓰는 오브젝트들을 하나의 부모의 자식으로 넣되, 딕셔너리를 이용해 따로따로 관리
-
-<img src="https://user-images.githubusercontent.com/58795584/101144613-eeb9a600-365b-11eb-81d8-b635e24095ba.PNG"  width="600"> | <img src="https://user-images.githubusercontent.com/58795584/101144636-f7aa7780-365b-11eb-8038-38db59d7c244.gif"  width="600">
+<img src="https://user-images.githubusercontent.com/58795584/101144613-eeb9a600-365b-11eb-81d8-b635e24095ba.PNG"  width="600"> 총알 자국에 사용 | <img src="https://user-images.githubusercontent.com/58795584/101144636-f7aa7780-365b-11eb-8038-38db59d7c244.gif"  width="600"> 탄피 효과에 사용
 :-------------------------:|:-------------------------:
-
-##### 대표적으로 사격 후 떨어지는 탄피들에 사용했다.
 
 ## JSON 데이터 세팅
 ![오브젝트풀링](https://user-images.githubusercontent.com/77636255/116545009-d4de6f80-a92a-11eb-84a8-5c33a7e325cc.png)
