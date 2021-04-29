@@ -237,6 +237,8 @@
 ![오브젝트풀링](https://user-images.githubusercontent.com/77636255/116545009-d4de6f80-a92a-11eb-84a8-5c33a7e325cc.png)
 
 ## 커스텀 에디터
+![오브젝트풀링](https://user-images.githubusercontent.com/77636255/116546742-f2143d80-a92c-11eb-98d0-0934fd8cffed.png)
+
 ```c#
 [CustomEditor(typeof(SkillManager))]
 public class SkillEditor : Editor
