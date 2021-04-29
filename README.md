@@ -7,8 +7,8 @@
 #### 개발기간 : 5개월
 
 ------------
-# 1. 게임 소개
-## ⓐ FPS 와 RTS 혼합 및 AI 코옵
+# 게임 소개
+## FPS 와 RTS 혼합 및 AI 코옵
 + 3명의 NPC와 협동하여 게임을 클리어하는 시스템입니다.
 + NPC는 자율적으로 움직이되, RTS모드로 명령을 내릴 수 있습니다.
 + 3인칭 슈팅과 전략 시뮬레이션의 혼합 장르
@@ -17,7 +17,7 @@
 <img src="https://user-images.githubusercontent.com/58795584/100735990-79f52a80-3415-11eb-99ea-ea2ab9f43e4f.PNG" width="450"> | <img src="https://user-images.githubusercontent.com/58795584/100737782-f852cc00-3417-11eb-84f9-cbd958e41a41.PNG" width="450">
 :-------------------------:|:-------------------------:
 
-## ⓑ 몬스터 및 보스 
+## 몬스터 및 보스 
 + 각 스테이지에는 1명(기)의 보스가 배치되어 있습니다.
 + '플레이어'는 보스와 전투하기 전 수 많은 일반 몬스터와 조우 및 전투를 하게 됩니다.
 + '플레이어'는 생존한 상태로 보스를 물리쳐야 합니다.
@@ -26,8 +26,8 @@
 :-------------------------:|:-------------------------:
 
 ------------
-# 2. 구현 내용
-## ⓐ 블렌드 트리, 레이어, 애니메이션 이벤트로 애니메이터 제작
+# 구현 내용
+## 블렌드 트리, 레이어, 애니메이션 이벤트로 애니메이터 제작
 + 총 4가지의 스테이트로 분류 (서서 라이플, 앉아 라이플, 서서 피스톨, 앉아 라이플)
 + BodyValue라는 변수 4개 구현하여 각각의 스테이트로 가면 1이 되도록 합니다.
 + speed라는 변수를 만들어 수치에 따라 idle, walk, jog, run으로 이동하도록 구현.
@@ -39,7 +39,7 @@
 :-------------------------:|:-------------------------:
 <img src="https://user-images.githubusercontent.com/58795584/100778930-fa824e00-344a-11eb-971a-b44d4ac7de2f.PNG"  width="450"> | <img src="https://user-images.githubusercontent.com/58795584/100778956-02da8900-344b-11eb-8e28-bd423feda774.PNG"  width="450">
 
-## ⓑ 캐릭터 컨트롤러를 이용한 캐릭터 구현
+## 캐릭터 컨트롤러를 이용한 캐릭터 구현
 * 고질적인 문제인 캡슐 콜라이더의 isGrounded 충돌 체크를 5줄의 빨간 Ray로 
 * Slope Sliding을 구현. (Red Ray 이용하여 오브젝트를 검출. green은 오브젝트의 노멀 벡터 Yellow는 내려가야할 각도를 그려냄)
 * Angle 함수로 캐릭터의 up벡터를 기준으로 충돌된 오브젝트의 normal vec와의 각도를 계산하여 경사각을 구합니다.
@@ -113,7 +113,7 @@
       }
   }
 ```
-## ⓒ 3인칭 카메라 콜리전 구현
+## 3인칭 카메라 콜리전 구현
 + 카메라를 똑같이 따라가는 카메라 더미 하나를 생성
 + 충돌 검사를 카메라 더미로 실행
 + 충돌 시 더미는 계속 충돌 검사하며 실제 카메라는 충돌한 포인트로 위치를 옮긴다.
@@ -138,7 +138,7 @@
             }
 ```
 
-## ⓓ IK 시스템 사용
+## IK 시스템 사용
 + 다양한 총기의 모션을 위해 IK 시스템을 이용하여 원하는 위치에 왼손과 오른손을 두도록 만들었습니다.
 + 각각의 총기마다 오른손과 왼손의 위치가 존재하며 json으로 관리하고 있습니다.
 + 캐릭터의 상체가 크로스헤어, 카메라 정중앙을 바라보도록 만들었습니다.
@@ -174,7 +174,7 @@
 ```
 ![무기오브젝트](https://user-images.githubusercontent.com/77636255/116544599-51248300-a92a-11eb-923c-ad482582f74d.png)
 
-## ⓔ 오브젝트 풀링
+## 오브젝트 풀링
 + 오브젝트 풀링은 스킬에 사용되는 이펙트, 사격 시 떨어지는 탄피, 장전 시 떨어지는 탄창에 사용되었습니다.
 + 싱글톤을 이용하여 오브젝트 풀링을 관리했습니다.
 + 게임 로딩시간에 선택한 무기와 스킬에 맞는 이펙트와 총알들을 모두 로드 시킨 뒤, 오브젝트들을 Queue에 Push 후 false 시켰습니다.
@@ -237,12 +237,59 @@
 
 ##### 대표적으로 사격 후 떨어지는 탄피들에 사용했다.
 
-## ⓕ 스킬 구현 및 기타
+## JSON 데이터 세팅
+![오브젝트풀링](https://user-images.githubusercontent.com/77636255/116545009-d4de6f80-a92a-11eb-84a8-5c33a7e325cc.png)
+
+## 커스텀 에디터
+```c#
+[CustomEditor(typeof(SkillManager))]
+public class SkillEditor : Editor
+{
+    private bool[] SkillPerk = new bool[9];
+
+    public override void OnInspectorGUI()
+    {
+        base.OnInspectorGUI();
+        SkillManager perkTest = (SkillManager)target;
+
+        GUILayout.Space(15);
+        GUILayout.Label("Skill Perk", EditorStyles.boldLabel);
+        SkillPerk[0] = EditorGUILayout.Toggle("폭렬 대쉬", SkillPerk[0]);
+        SkillPerk[1] = EditorGUILayout.Toggle("클라이맥스", SkillPerk[1]);
+        SkillPerk[2] = EditorGUILayout.Toggle("정오의 주인공", SkillPerk[2]);
+        SkillPerk[3] = EditorGUILayout.Toggle("사이킥 폭풍", SkillPerk[3]);
+        SkillPerk[4] = EditorGUILayout.Toggle("염동력", SkillPerk[4]);
+        SkillPerk[5] = EditorGUILayout.Toggle("망령 탄환", SkillPerk[5]);
+        SkillPerk[6] = EditorGUILayout.Toggle("무차별 포화", SkillPerk[6]);
+        SkillPerk[7] = EditorGUILayout.Toggle("바람 구멍", SkillPerk[7]);
+        SkillPerk[8] = EditorGUILayout.Toggle("폭탄 뿌리기", SkillPerk[8]);
+
+        if(GUILayout.Button("캐릭터에 퍽 적용"))
+        {
+            if(!Application.isPlaying)
+            {
+                Debug.Log("Play중에만 적용 가능 합니다.");
+                return;
+            }
+
+
+            for(int i = 0; i < SkillPerk.Length; i++)
+            {
+                if(SkillPerk[i])
+                {
+                    perkTest.Initialized(2000 + i);
+                }
+            }
+        }
+    }
+}
+```
+## 스킬 구현 및 기타
 + 캐릭터의 스펙을 데이터화 하기 위해 로딩 시간에 캐릭터를 구현하는데 필요한 모든 컴포넌트를 코드로 제작합니다. (GameManager)
 + 플레이어 매니저 스크립트를 따로 만들어 플레이어 구동에 필요한 코드들을 관리 및 서순을 정리했습니다. (Player_Manager)
 + 게임 홍보 영상입니다. [영상 링크](https://youtu.be/nFbnCIlHbpg)
 + 플레이어 스킬 영상입니다.
 + [폭렬 대쉬](https://youtu.be/aIDAlNDNzYI), [클라이맥스](https://youtu.be/iPaevBxKvN0), [정오의 주인공](https://youtu.be/sCfBqqwG5-Q), [사이킥 폭풍](https://youtu.be/dERqsuWcYs0), [염동력](https://youtu.be/FS85jic2FrI), [무차별 탄환](https://youtu.be/-v3yz9zgfQo), [바람 구멍](https://youtu.be/-QsGkroOFCw), [폭탄 뿌리기](https://youtu.be/6d7SaL7PygM)
 
-## ⓖ 팀 프로젝트를 하면서..
+## 팀 프로젝트를 하면서..
 + 그래픽을 담당하는 분이 팀에 있지 않아 애니메이션을 이용한 프로그래밍 작업이 힘들었습니다. 특히나 하나의 모션으로 다양한 총기 모션을 표현해야했기 때문에 팀원과의 대화를 통해 하나의 모션을 이용해 유니티의 IK 시스템을 이용하여 손과 팔목을 자유자재로 움직일 수 있도록 만들어봤습니다.
