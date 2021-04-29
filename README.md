@@ -7,6 +7,12 @@
 #### 개발기간 : 5개월
 #### 플레이 영상 : [링크](https://youtu.be/nFbnCIlHbpg)
 ------------
+# 목차
+* [게임 소개](#게임-소개)
+* [구현 내용](#구현-내용)
+* [어려웠던 점](#어려웠던-점)
+
+------------
 # 게임 소개
 ## FPS 와 RTS 혼합 및 AI 코옵
 + 3명의 NPC와 협동하여 게임을 클리어하는 시스템입니다.
@@ -288,5 +294,5 @@ public class SkillEditor : Editor
 + 플레이어 스킬 영상입니다.
 + [폭렬 대쉬](https://youtu.be/aIDAlNDNzYI), [클라이맥스](https://youtu.be/iPaevBxKvN0), [정오의 주인공](https://youtu.be/sCfBqqwG5-Q), [사이킥 폭풍](https://youtu.be/dERqsuWcYs0), [염동력](https://youtu.be/FS85jic2FrI), [무차별 탄환](https://youtu.be/-v3yz9zgfQo), [바람 구멍](https://youtu.be/-QsGkroOFCw), [폭탄 뿌리기](https://youtu.be/6d7SaL7PygM), [망령 탄환](https://youtu.be/pLg21kK5EZo)
 
-## 팀 프로젝트를 하면서..
+# 어려웠던 점
 + 그래픽을 담당하는 분이 팀에 있지 않아 애니메이션을 이용한 프로그래밍 작업이 힘들었습니다. 특히나 하나의 모션으로 다양한 총기 모션을 표현해야했기 때문에 팀원과의 대화를 통해 하나의 모션을 이용해 유니티의 IK 시스템을 이용하여 손과 팔목을 자유자재로 움직일 수 있도록 만들어봤습니다.
