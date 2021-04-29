@@ -49,69 +49,73 @@
 * Angle 함수로 캐릭터의 up벡터를 기준으로 충돌된 오브젝트의 normal vec와의 각도를 계산하여 경사각을 구합니다.
 * 경사각이 제한보다 크다면 Slope Sliding이 실행됩니다.
 
-<img src="https://user-images.githubusercontent.com/58795584/100769125-fbad7e00-343e-11eb-9c9f-3ec8c476797c.PNG"  width="550" height="300"> | <img src="https://user-images.githubusercontent.com/58795584/100770739-f4876f80-3440-11eb-9d73-9816ace60522.PNG"  width="550">
+<img src="https://user-images.githubusercontent.com/77636255/116537490-45808e80-a921-11eb-92f6-e982fce07066.png"  width="550" height="300"> | <img src="https://user-images.githubusercontent.com/77636255/116537525-50d3ba00-a921-11eb-92e8-6b5b62dfe7b7.png"  width="550">
 :-------------------------:|:-------------------------:
 ```C#
- public void CheckGround()
-        {
-            // body는 CharacterController 컴포넌트를 의미하는 변수.
-            if (body == null)
-            {
-                return;
-            }
-            // initRay() 함수로 5개의 레이를 미리 정의한다.
-            Ray[] modify = initRay();
+  public void CheckGround()
+  {
+      // 캐릭터 컴포넌트 Null Check
+      if (body == null)
+      {
+          return;
+      }
 
-            RaycastHit hit;
-            // hitcount가 0이면 isGrounded = false
-            int hitcount = 0;
+      // 5개의 Ray 생성
+      Ray[] modify = initRay();
 
-            for (int i = 0; i < 5; ++i)
-            {
-                Debug.DrawRay(modify[i].origin, modify[i].direction * 0.3f, Color.red);
-                if (Physics.Raycast(modify[i], out hit, 0.3f))
-                {
-                    ++hitcount;
-                    // 충돌 레이가 캐릭터의 중심부에서 쏜 레이라면..
-                    if (i == 0)
-                    {
-                        // 캐릭터 중심으로 레이를 쏴 현재 밟는 땅의 경사 각도를 알아낸다.
-                        groundslopeAngle = Vector3.Angle(transform.up, hit.normal);
-                        // 캐릭터 컨트롤러의 경사 제한보다 크다면...
-                        if(groundslopeAngle >= body.slopeLimit)
-                        {
-                            // 외적을 이용하여 법선 벡터를 구한다. (캐릭터의 x축을 지나는 벡터가 구해진다.)
-                            Vector3 groundCross = Vector3.Cross(hit.normal, Vector3.up);
-                            // 그 법선벡터 (x축)와 충돌한 땅의 노멀벡터와 수직인 외적 법선 벡터를 구해서 떨어져야 할 각도를 구해낸다. 
-                            // 캐릭터의 윗방향 수직인 벡터와 외적으로 구해낸 경사각까지의 각도를 fallDirection에 대입.
-                            fallDirection.rotation = Quaternion.FromToRotation(transform.up, Vector3.Cross(groundCross, hit.normal));
+      RaycastHit hit;
+      int hitcount = 0;
 
-                            Debug.DrawRay(transform.position, -fallDirection.up, Color.yellow);
-                            return;
-                        }
+      // FixedUpdate를 통해 실행 (Update 보다 먼저 실행된다.)
+      for (int i = 0; i < 5; ++i)
+      {
+          Debug.DrawRay(modify[i].origin, modify[i].direction * 0.3f, Color.red);
+          if (Physics.Raycast(modify[i], out hit, 0.3f))
+          {
+              // Hit Check
+              ++hitcount;
 
-                        else
-                        {
-                            fallDirection.eulerAngles = Vector3.zero;
-                        }
-                    }
+              // 가운데에 있는 Ray를 사용
+              if (i == 0)
+              {
+                  // 캐릭터 중심으로 레이를 쏴 현재 밟는 땅의 경사 각도를 알아낸다.
+                  groundslopeAngle = Vector3.Angle(transform.up, hit.normal);
+                  // 캐릭터 컨트롤러의 경사 제한보다 크다면 경사를 오르지 못하게 한다. (슬라이딩)
+                  if(groundslopeAngle > body.slopeLimit)
+                  {
+                      // 외적을 이용하여 법선 벡터를 구한다. (캐릭터의 x축을 지나는 벡터가 구해진다.)
+                      Vector3 groundCross = Vector3.Cross(hit.normal, Vector3.up);
+                      // 법선벡터 (x축)와 충돌한 땅의 노멀벡터와 수직인 외적 법선 벡터를 구해서 떨어져야 할 각도를 구해낸다. 
+                      // 캐릭터의 윗방향 수직인 벡터와 외적으로 구해낸 경사각까지의 각도를 fallDirection에 대입.
+                      fallDirection.rotation = Quaternion.FromToRotation(transform.up, Vector3.Cross(groundCross, hit.normal));
 
-                    if (groundslopeAngle <= body.slopeLimit && body.isGrounded && hitcount > 0)
-                    {
-                        isGrounded = true;
-                        // Second는 따로 만든 Time.deltatime이며 yVelocity는 Move 함수에 사용될 중력 값
-                        // gravityY는 유니티 에디터에 있는 기존 중력값 -9.81f에 따로 gravityMultiplexer라는 변수로 중력을 더욱 더해주었다.
-                        yVelocity = gravityY * gravityMultiplexer * Second;
-                    }
-                }
-            }
+                      Debug.DrawRay(transform.position, -fallDirection.up, Color.yellow);
+                      return;
+                  }
 
+                  // 오를 수 있는 경사
+                  else
+                  {
+                      fallDirection.eulerAngles = Vector3.zero;
+                  }
+              }
 
-            if (hitcount == 0)
-            {
-                isGrounded = false;
-            }
-        }
+              // 바닥에 있는지 체크
+              if (groundslopeAngle <= body.slopeLimit && body.isGrounded && hitcount > 0)
+              {
+                  isGrounded = true;
+                  // CharacterComponent.Move()에 사용 될 Y 값을 중력 처럼 넣어준다.
+                  yVelocity = gravityY * gravityMultiplexer * Second;
+              }
+          }
+      }
+
+      // 레이가 하나도 충돌 되지 않았다면 공중에 있다고 판별
+      if (hitcount == 0)
+      {
+          isGrounded = false;
+      }
+  }
 ```
 ## ⓒ 3인칭 카메라 콜리전 구현
 + 카메라를 똑같이 따라가는 카메라 더미 하나를 생성
