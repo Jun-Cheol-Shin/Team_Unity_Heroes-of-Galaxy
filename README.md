@@ -299,9 +299,7 @@ public class SkillEditor : Editor
 }
 ```
 ## 스킬 구현
-+ 캐릭터의 스펙을 데이터화 하기 위해 로딩 시간에 캐릭터를 구현하는데 필요한 모든 컴포넌트를 코드로 제작합니다. (GameManager)
-+ 플레이어 매니저 스크립트를 따로 만들어 플레이어 구동에 필요한 코드들을 관리 및 서순을 정리했습니다. (Player_Manager)
-+ 플레이어 스킬 영상입니다.
++ 플레이어 스킬 9가지 
 + [폭렬 대쉬](https://youtu.be/aIDAlNDNzYI), [클라이맥스](https://youtu.be/iPaevBxKvN0), [정오의 주인공](https://youtu.be/sCfBqqwG5-Q), [사이킥 폭풍](https://youtu.be/dERqsuWcYs0), [염동력](https://youtu.be/FS85jic2FrI), [무차별 탄환](https://youtu.be/-v3yz9zgfQo), [바람 구멍](https://youtu.be/-QsGkroOFCw), [폭탄 뿌리기](https://youtu.be/6d7SaL7PygM), [망령 탄환](https://youtu.be/pLg21kK5EZo)
 
 # 어려웠던 점
