@@ -56,7 +56,7 @@
 <img src="https://user-images.githubusercontent.com/58795584/100778930-fa824e00-344a-11eb-971a-b44d4ac7de2f.PNG"  width="450"> | <img src="https://user-images.githubusercontent.com/58795584/100778956-02da8900-344b-11eb-8e28-bd423feda774.PNG"  width="450">
 
 ## 캐릭터 컨트롤러를 이용한 캐릭터 구현
-* 고질적인 문제인 캡슐 콜라이더의 isGrounded 충돌 체크를 5줄의 빨간 Ray로 
+* 고질적인 문제인 캡슐 콜라이더의 isGrounded 충돌 체크를 5줄의 빨간 Ray로 보완
 * Slope Sliding을 구현. (Red Ray 이용하여 오브젝트를 검출. green은 오브젝트의 노멀 벡터 Yellow는 내려가야할 각도를 그려냄)
 * Angle 함수로 캐릭터의 up벡터를 기준으로 충돌된 오브젝트의 normal vec와의 각도를 계산하여 경사각을 구합니다.
 * 경사각이 제한보다 크다면 Slope Sliding이 실행됩니다.
