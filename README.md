@@ -303,4 +303,4 @@ public class SkillEditor : Editor
 + [폭렬 대쉬](https://youtu.be/aIDAlNDNzYI), [클라이맥스](https://youtu.be/iPaevBxKvN0), [정오의 주인공](https://youtu.be/sCfBqqwG5-Q), [사이킥 폭풍](https://youtu.be/dERqsuWcYs0), [염동력](https://youtu.be/FS85jic2FrI), [무차별 탄환](https://youtu.be/-v3yz9zgfQo), [바람 구멍](https://youtu.be/-QsGkroOFCw), [폭탄 뿌리기](https://youtu.be/6d7SaL7PygM), [망령 탄환](https://youtu.be/pLg21kK5EZo)
 
 # 어려웠던 점
-+ 그래픽을 담당하는 분이 팀에 있지 않아 애니메이션을 이용한 프로그래밍 작업이 힘들었습니다. 특히나 하나의 모션으로 다양한 총기 모션을 표현해야했기 때문에 팀원과의 대화를 통해 하나의 모션을 이용해 유니티의 IK 시스템을 이용하여 손과 팔목을 자유자재로 움직일 수 있도록 만들어봤습니다.
++ 애니메이션 리소스가 많이 부족하여 많은 애니메이션들을 IK로 대체 (퀄리티가 만족스럽지 못하다)
